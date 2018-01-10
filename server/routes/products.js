@@ -55,5 +55,15 @@ Router.route('/:productId')
       }
     })
   })
+  .delete((req, res) => {
+    const deleteProductId = req.params.productId
+    Product.remove({_id: deleteProductId}, (err, product) => {
+      if (err) {
+        res.json({ error: err })
+      } else {
+        res.json({ msg: 'Your Product was deleted', product })
+      }
+    })
+  })
 
 module.exports = Router
