@@ -1,6 +1,7 @@
 import React from 'react'
 import NavItem from './NavItem'
 
+
 const style = {
   container: {
     display: 'flex',
