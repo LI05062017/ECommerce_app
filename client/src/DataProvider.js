@@ -28,7 +28,7 @@ class DataProvider extends Component {
       })
     }
   }
-  
+
   componentDidMount () {
     this.methods.getAllProducts()
   }

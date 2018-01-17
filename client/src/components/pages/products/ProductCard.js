@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card'
 import Typography from 'material-ui/Typography/Typography'
 import Button from 'material-ui/Button'
+import {Link} from 'react-router-dom'
 const style = {
   card: {
     width: 345
@@ -13,8 +14,9 @@ const style = {
   }
 }
 
-const ProductCard = ({name, price, img, catagory, _id, deleteProduct}) =>
+const ProductCard = ({name, price, img, catagory, _id, deleteProduct, product}) =>
   <div>
+    
     <Card style={style.card}>
       <CardMedia
         style={style.media}
@@ -28,9 +30,11 @@ const ProductCard = ({name, price, img, catagory, _id, deleteProduct}) =>
         </Typography>
       </CardContent>
       <CardActions>
+        
         <Button dense color='primary' onClick={() => deleteProduct(_id)}>Delete</Button>
-        <Button raised color='primary'> View </Button>
+        <Button raised color='primary'><Link to={`/product/${_id}`}> View </Link></Button>
       </CardActions>
+  
     </Card>
   </div>
 
