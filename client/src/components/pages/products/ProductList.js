@@ -2,9 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ProductCard from './ProductCard'
 
+const style = {
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexWrap: 'wrap'
+  }
+}
+
 const ProductList = ({products, deleteProduct}) =>
 
-  <div>
+  <div style={style.container}>
     {
       products.map(product => {
         return <ProductCard

@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
 import Layout from './components/structure/Layout'
 import $ from 'jquery'
+import * as UserApi from './lib/userApi'
 
 class DataProvider extends Component {
   state = {
     isLoaded: false,
-    products: []
+    products: [],
+    user: null
   }
 
   methods = {
@@ -26,6 +28,13 @@ class DataProvider extends Component {
         console.log(response, 'DELETE DATA!')
         this.methods.getAllProducts()
       })
+    },
+    newUser: (user) => {
+      UserApi.signupUser(user)
+        .then(user => {
+          this.setState({user})
+          return user
+        })
     }
   }
 

@@ -6,16 +6,19 @@ import Button from 'material-ui/Button'
 import {Link} from 'react-router-dom'
 const style = {
   card: {
-    width: 345
+   width: 345
   },
   media: {
     border: '1px solid black',
     height: 200
+  },
+  body: {
+    margin: 5,
   }
 }
 
 const ProductCard = ({name, price, img, catagory, _id, deleteProduct, product}) =>
-  <div>
+  <div style={style.body}>
     
     <Card style={style.card}>
       <CardMedia
