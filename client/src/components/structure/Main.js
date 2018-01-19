@@ -6,6 +6,7 @@ import AddProductContainer from '../pages/products/AddProductContainer'
 import {Route} from 'react-router-dom'
 import ViewProductContainer from '../pages/products/ViewProductContainer'
 import SignUpContainer from '../pages/authentication/SignUpContainer'
+import LoginContainer from '../pages/authentication/LoginContainer'
 
 const style = {
   container: {
@@ -25,7 +26,7 @@ const Main = ({ domainData }) =>
     <Route path='/products' render={() => <ProductsContainer domainData={domainData} />} />
     <Route exact path='/product/:productId' component={ViewProductContainer} />
     <Route path='/sign-up' render={() => <SignUpContainer domainData={domainData} />} />
-
+    <Route path='/login' render={() => <LoginContainer domainData={domainData} />} />
   </main>
 
 export default Main

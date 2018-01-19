@@ -6,7 +6,8 @@ class SignUpContainer extends Component {
   state = {
     firstName: undefined,
     lastName: undefined,
-    email: undefined
+    email: undefined,
+    password: undefined
   }
 
   onChangeHandler = (e) => this.setState({ [e.target.id]: e.target.value })
@@ -24,7 +25,7 @@ class SignUpContainer extends Component {
       <SignUpForm
         {...this.state}
         onChangeHandler={this.onChangeHandler}
-        onsubmit={this.onSubmit}
+        onSubmit={this.onSubmit}
 
       />
 

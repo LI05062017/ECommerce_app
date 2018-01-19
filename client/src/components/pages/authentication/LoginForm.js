@@ -1,9 +1,9 @@
 import React from 'react'
-import Typography from 'material-ui/Typography'
+import Typography from 'material-ui/Typography/Typography'
 import Card from 'material-ui/Card'
 import Button from 'material-ui/Button'
-import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 
 const style = {
   container: {
@@ -32,52 +32,37 @@ const style = {
   }
 }
 
-const SignUpForm = ({onChangeHandler, onSubmit, id}) =>
+const LoginForm = ({onChangeHandler, id, onSubmit}) =>
   <form style={style.container}>
+
     <div style={style.card}>
-      <Card style={style.cards} raised='true' >
+      <Card style={style.cards} raised='true'>
         <Typography type='headline' component='h2'>
-        First Name:
+    Email:
         </Typography>
-        <input style={style.input} onChange={onChangeHandler} type='text' id='firstName' />
+        <input style={style.input} onChange={onChangeHandler} type='email' id='email' />
       </Card>
     </div>
 
     <div style={style.card}>
       <Card style={style.cards} raised='true'>
         <Typography type='headline' component='h2'>
-        Last Name:
+    Password:
         </Typography>
-        <input style={style.input} onChange={onChangeHandler} type='text' id='lastName' />
+        <input style={style.input} onChange={onChangeHandler} type='password' id='password' />
       </Card>
     </div>
-
-    <div style={style.card}>
-      <Card style={style.cards} raised='true'>
-        <Typography type='headline' component='h2'>
-        Email:
-        </Typography>
-        <input style={style.input} onChange={onChangeHandler} type='text' id='email' />
-      </Card>
-    </div>
-    
-    <Card>
-      <Typography>
-        Password:
-      </Typography>
-      <input type='text' onChange={onChangeHandler} id='password' />
-    </Card>
 
     <div style={style.button}>
-      <Button onClick={onSubmit} raised> Sign Up </Button>
-      <Link to='/login'> Login </Link>
+      <Button raised onClick={onSubmit}> Login </Button>
+      <Button raised >  <Link to='/sign-up'> Not Registerd? Sign Up </Link></Button>
     </div>
+
   </form>
 
-SignUpForm.propTypes = {
+LoginForm.propTypes = {
   onChangeHandler: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  id: PropTypes.func.isRequired
 }
 
-export default SignUpForm
+export default LoginForm

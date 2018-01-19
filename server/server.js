@@ -1,4 +1,7 @@
+
 const express = require('express')
+const session = require('express-session')
+const passport = require('passport')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const app = express()
@@ -12,11 +15,20 @@ mongoose.connect('mongodb://localhost/eCommerce_app')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(session({
+  name: 'ecommerce',
+  secret: 'shhhhh',
+  secure: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+require('./passport/Strategies')(passport)
+require('./passport/Routes')(app, passport)
 app.use(require('./config/error-handler'))
 
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
 
-const server = app.listen(port, () => console.log(`Running on port: ${port}`))
+const server = app.listen(port, () => console.log(`😊 Running on port: ${port}`))
 
 module.exports = server
