@@ -28,6 +28,7 @@ const Header = ({domainData}) => {
         { domainData.loggedOut ? <NavItem to='/login'> Login </NavItem> : null }
         { domainData.loggedIn ? <HeaderLink onClick={domainData.logoutUser}> Log out </HeaderLink> : null}
         { domainData.loggedIn ? <HeaderLink> {domainData.user.local.email} </HeaderLink> : null}
+        { domainData.loggedIn ? <NavItem to='/cart'> Cart </NavItem> : null }
       </nav>
     </header>
   )

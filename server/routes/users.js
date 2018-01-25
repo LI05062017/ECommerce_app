@@ -29,10 +29,9 @@ Router.route('/')
     })
   })
 
-Router.route('/cart')
-
 Router.route('/cart/:userId')
   .put((req, res) => {
+    console.log(req.body)
     const userId = req.params.userId
     User.findById({_id: userId}, (err, user) => {
       if (err) {
@@ -95,6 +94,7 @@ Router.route('/:userId')
         if (err) {
           res.json({ error: err })
         } else {
+          console.log(user)
           res.json({msg: `Found ${userId}`, user})
         }
       })

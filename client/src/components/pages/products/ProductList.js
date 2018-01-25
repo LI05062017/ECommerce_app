@@ -12,7 +12,7 @@ const style = {
   }
 }
 
-const ProductList = ({products, deleteProduct}) =>
+const ProductList = ({products, deleteProduct, addItemToCart}) =>
 
   <div style={style.container}>
     {
@@ -20,6 +20,7 @@ const ProductList = ({products, deleteProduct}) =>
         return <ProductCard
           {...product}
           deleteProduct={deleteProduct}
+          addItemToCart={addItemToCart}
         />
       })
     }
@@ -27,7 +28,8 @@ const ProductList = ({products, deleteProduct}) =>
 
 ProductList.propTypes = {
   products: PropTypes.array.isRequired,
-  deleteProduct: PropTypes.func.isRequired
+  deleteProduct: PropTypes.func.isRequired,
+  addItemToCart: PropTypes.func.alignItems
 }
 
 export default ProductList

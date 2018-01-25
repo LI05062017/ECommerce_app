@@ -17,7 +17,7 @@ const style = {
   }
 }
 
-const ProductCard = ({name, price, img, catagory, _id, deleteProduct, product}) =>
+const ProductCard = ({name, price, img, catagory, _id, deleteProduct, product, addItemToCart}) =>
   <div style={style.body}>
     
     <Card style={style.card}>
@@ -36,6 +36,7 @@ const ProductCard = ({name, price, img, catagory, _id, deleteProduct, product}) 
         
         <Button dense color='primary' onClick={() => deleteProduct(_id)}>Delete</Button>
         <Button raised color='primary'><Link to={`/product/${_id}`}> View </Link></Button>
+        <Button dense color='primary' onClick={() => addItemToCart(_id)}>Add to Cart</Button>
       </CardActions>
   
     </Card>
@@ -47,7 +48,8 @@ ProductCard.propTypes = {
   img: PropTypes.object.isRequired,
   catagory: PropTypes.object.isRequired,
   _id: PropTypes.func.isRequired,
-  deleteProduct: PropTypes.func.isRequired
+  deleteProduct: PropTypes.func.isRequired,
+  addItemToCart: PropTypes.func.isRequired
 }
 
 export default ProductCard

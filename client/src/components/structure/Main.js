@@ -7,6 +7,8 @@ import {Route} from 'react-router-dom'
 import ViewProductContainer from '../pages/products/ViewProductContainer'
 import SignUpContainer from '../pages/authentication/SignUpContainer'
 import LoginContainer from '../pages/authentication/LoginContainer'
+import CartContainer from '../pages/products/CartContainer'
+import PropTypes from 'prop-types'
 
 const style = {
   container: {
@@ -27,6 +29,11 @@ const Main = ({ domainData }) =>
     <Route exact path='/product/:productId' component={ViewProductContainer} />
     <Route path='/sign-up' render={() => <SignUpContainer domainData={domainData} />} />
     <Route path='/login' render={() => <LoginContainer domainData={domainData} />} />
+    <Route path='/cart' render={() => <CartContainer domainData={domainData} />} />
   </main>
+
+Main.propTypes = {
+  domainData: PropTypes.func.isRequired
+}
 
 export default Main

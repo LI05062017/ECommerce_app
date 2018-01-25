@@ -16,7 +16,7 @@ class DataProvider extends Component {
         url: '/api/products',
         method: 'GET'
       }).done((response) => {
-        console.log(response, 'Data Provider')
+        // console.log(response, 'Data Provider')
         this.setState({isLoaded: true, products: response.data})
       })
     },
@@ -25,21 +25,21 @@ class DataProvider extends Component {
         url: `/api/products/${id}`,
         method: 'DELETE'
       }).done((response) => {
-        console.log('Delete Data Provider', response)
+        // console.log('Delete Data Provider', response)
         this.methods.getAllProducts()
       })
     },
     newUser: (user) =>
       UserApi.signupUser(user)
         .then(user => {
-          console.log(user, '****USER****')
+          // console.log(user, '****USER****')
           this.setState({user})
           return user
         }),
     loginUser: (email, password) =>
       UserApi.loginUser(email, password)
         .then(user => {
-          console.log(user, 'USER****')
+          // console.log(user, 'USER****')
           this.setState({user})
           return user
         }),
@@ -54,9 +54,23 @@ class DataProvider extends Component {
       UserApi.logoutUser()
         .then(() => {
           this.setState({user: null})
+        }),
+    addItemToCart: (productId) => {
+      if (this.state.user != null) {
+        $.ajax({
+          url: `/api/users/cart/${this.state.user._id}`,
+          method: 'PUT',
+          data: {product_id: productId}
+        }).done((response) => {
+          console.log(response, '*******')
+          console.log(this.state.products)
+          this.methods.getUser()
         })
+      } else {
+        console.log('user must be logging in')
+      }
+    }
   }
-
   componentDidMount () {
     this.methods.getAllProducts()
     // this.methods.getUser()
