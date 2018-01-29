@@ -1,4 +1,5 @@
 const ajaxRequest = (uri, method, body) => {
+  console.log(uri)
   const headers = new Headers({
     'Content-Type': 'application/json'
   })
@@ -36,6 +37,6 @@ export const signupUser = (user) => ajaxRequest('sign-up', 'POST', user)
 
 export const loginUser = (email, password) => ajaxRequest('login', 'POST', {email, password})
 
-export const getUser = () => ajaxRequest('get_user', 'GET')
+export const getUser = (user) => ajaxRequest(`users/${user}`, 'GET')
 
 export const logoutUser = () => ajaxRequest('logout', 'GET')

@@ -1,46 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card'
-import Typography from 'material-ui/Typography/Typography'
 import Button from 'material-ui/Button'
 import {Link} from 'react-router-dom'
 const style = {
   card: {
-   width: 345
+    width: 345
   },
   media: {
     border: '1px solid black',
     height: 200
   },
   body: {
-    margin: 5,
+    margin: 5
+  },
+  catagory: {
+    border: '1px solid black'
   }
 }
 
-const ProductCard = ({name, price, img, catagory, _id, deleteProduct, product, addItemToCart}) =>
-  <div style={style.body}>
-    
-    <Card style={style.card}>
-      <CardMedia
-        style={style.media}
-        title={catagory}
-        image='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuCrnoqTXxQcS-tatFspCep9cOGTuvfC8j_FEthUP7l99Fl0TRag'
-      />
-
-      <CardContent>
-        <Typography type='headline' component='h2' >
-          {name}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        
-        <Button dense color='primary' onClick={() => deleteProduct(_id)}>Delete</Button>
-        <Button raised color='primary'><Link to={`/product/${_id}`}> View </Link></Button>
-        <Button dense color='primary' onClick={() => addItemToCart(_id)}>Add to Cart</Button>
-      </CardActions>
-  
-    </Card>
-  </div>
+const ProductCard = ({name, price, img, catagory, _id, deleteProduct, product, addItemToCart}) => {
+  return (
+    <div style={style.body}>
+      <h3> {name} </h3>
+      <img src={img} />
+      <h4> {price} </h4>
+      <h4 style={style.catagory}> {catagory} catagory </h4>
+      <Button dense color='primary' onClick={() => deleteProduct(_id)}>Delete</Button>
+      <Button raised color='primary'><Link to={`/product/${_id}`}> View </Link></Button>
+      <Button dense color='primary' onClick={() => addItemToCart(_id)}>Add to Cart</Button> 
+    </div>
+  )
+}
 
 ProductCard.propTypes = {
   name: PropTypes.object.isRequired,
@@ -49,7 +39,8 @@ ProductCard.propTypes = {
   catagory: PropTypes.object.isRequired,
   _id: PropTypes.func.isRequired,
   deleteProduct: PropTypes.func.isRequired,
-  addItemToCart: PropTypes.func.isRequired
+  addItemToCart: PropTypes.func.isRequired,
+  product: PropTypes.object.isRequired
 }
 
 export default ProductCard

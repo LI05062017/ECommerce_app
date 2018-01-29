@@ -5,6 +5,10 @@ const ViewOneProduct = ({product}) =>
 
   <div>
     <h1> {product.name} </h1>
+    <img src={product.img} />
+    <p> {product.price} </p>
+    <p> {product.catagory} </p>
+
    
   </div>
 

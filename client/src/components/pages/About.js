@@ -1,6 +1,7 @@
 import React from 'react'
 import Typography from 'material-ui/Typography'
 import Card from 'material-ui/Card'
+import Icon from 'material-ui/Icon'
 
 const style = {
   container: {
@@ -25,8 +26,9 @@ const About = () => {
     <div style={style.container}>
       <Card>
         <div style={style.about}>
-          <Typography style={style.h1}type='display1' gutterBottom=''>
+          <Typography style={style.h1}type='Title' gutterBottom=''>
              This is About!
+            <Icon> star</Icon>
           </Typography>
         </div>
       </Card>

@@ -2,6 +2,11 @@ import React from 'react'
 import NavItem from './NavItem'
 import HeaderLink from './HeaderLink'
 import PropTypes from 'prop-types'
+// import Typography from 'material-ui/Typography'
+// import Menu, {MenuItem} from 'material-ui/Menu'
+// import Button from 'material-ui/Button'
+// import DropDownMenu from 'material-ui/DropDownMenu'
+// import MenuItem from 'material-ui/MenuItem'
 
 const style = {
   container: {
@@ -9,17 +14,50 @@ const style = {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    padding: 20,
-    backgroundColor: '#020202',
-    color: 'white'
+    paddingTop: 20,
+    backgroundColor: 'white',
+    borderBottom: '5px solid #46cbe2',
+    borederTop: '5px solid grey'
+    // width: 200
 
+  },
+  h1: {
+    textDecoration: 'none',
+    color: 'black',
+    fontFamily: 'Raleway'
   }
 }
+
+// class Header extends Component {
+// //   state ={
+// //     anchorE1: null
+// //   }
+
+// //   handleClick = event => {
+// //     this.setState({anchorE1: event.currentTarget})
+// //   }
+// //   handleClose = () => {
+// //     this.setState({anchorE1: null})
+// //   }
+
+//   render () {
+//     // const {anchorE1} = this.state
+//     return (
+//       <div>
+//         <DropDownMenu>
+//           <MenuItem primaryText='Home' />
+//         </DropDownMenu>
+//       </div>
+//     )
+//   }
+// }
+
 const Header = ({domainData}) => {
   console.log(domainData, '******')
   return (
     <header>
       <nav style={style.container}>
+        <h1 style={style.h1}> Shop.com </h1>
         <NavItem exact to='/'> Home </NavItem>
         <NavItem to='/about'> About </NavItem>
         <NavItem to='/products'> Products </NavItem>

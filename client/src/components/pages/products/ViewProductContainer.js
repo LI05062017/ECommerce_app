@@ -25,10 +25,9 @@ class ViewProductContainer extends Component {
   render () {
     return (
       <div>
-        ViewProductContainer!
         {
           this.state.product
-            ? <ViewOneProduct product={this.state.product} />
+            ? <ViewOneProduct product={this.state.product} image={this.state.image} />
             : 'Loading'
         }
       </div>

@@ -7,11 +7,11 @@ const style = {
   }, 
   nav: {
     textDecoration: 'none',
-    color: 'white',
+    color: 'black',
     fontFamily: 'Raleway'
   },
   active: {
-    color: 'pink'
+    color: 'grey'
   }
 }
 

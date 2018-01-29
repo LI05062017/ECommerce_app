@@ -1,0 +1,11 @@
+.titleHome {
+  background-image: url('https://mirchmedia.com/img/banner-eCommerce-Solutions.jpg');
+  background-size: cover; 
+  padding: 100px;
+  margin-top: -70px;
+
+}
+
+.miniCardOne{
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}

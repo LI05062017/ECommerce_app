@@ -8,13 +8,14 @@ import ViewProductContainer from '../pages/products/ViewProductContainer'
 import SignUpContainer from '../pages/authentication/SignUpContainer'
 import LoginContainer from '../pages/authentication/LoginContainer'
 import CartContainer from '../pages/products/CartContainer'
+import CheckoutPageContainer from '../pages/products/CheckoutPageContainer'
 import PropTypes from 'prop-types'
 
 const style = {
   container: {
     textAlign: 'center',
     padding: 100,
-    backgroundColor: '#46cbe2'
+    backgroundColor: 'white'
   }
 }
 
@@ -30,6 +31,7 @@ const Main = ({ domainData }) =>
     <Route path='/sign-up' render={() => <SignUpContainer domainData={domainData} />} />
     <Route path='/login' render={() => <LoginContainer domainData={domainData} />} />
     <Route path='/cart' render={() => <CartContainer domainData={domainData} />} />
+    <Route path='/order' redner={() => <CheckoutPageContainer domainData={domainData} />} />
   </main>
 
 Main.propTypes = {

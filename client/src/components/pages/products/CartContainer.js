@@ -8,9 +8,14 @@ const CartContainer = ({domainData}) => {
     <div>
       {
         domainData.user != null
-          ? <CartList cartProducts={domainData.user.cart} />
+          ? <CartList
+            cartProducts={domainData.user.cart}
+            cartReady={domainData}
+            removeItemFromCart={domainData.removeItemFromCart}
+          />
           : 'You must be logged in!'
       }
+     
     </div>
   )
 }
