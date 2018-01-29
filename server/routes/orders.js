@@ -33,4 +33,16 @@ Router.route('/')
     })
   })
 
+Router.route('/:objectId')
+  .get((req, res) => {
+    const objectId = req.params.objectId
+    Order.findById({_id: objectId}, (err, order) => {
+      if (err) {
+        res.json({ error: err })
+      } else {
+        res.json({ msg: `Found:${objectId}`, order })
+      }
+    })
+  })
+
 module.exports = Router

@@ -91,17 +91,18 @@ class DataProvider extends Component {
         console.log('user must be logged in')
       }
     },
-    showProductOrder: (showOrder) => {
+    showProductOrder: (objectId) => {
+      console.log('showProductOrder is working!')
       if (this.state.user != null) {
         $.ajax({
           url: '/api/order',
           method: 'POST',
-          data: showOrder
+          data: objectId
         }).then((response) => {
           console.log('this is your order function!!')
           this.methods.getUser(this.state.user)
         }).catch((error) => {
-          console.log(' could not get products', error)
+          console.log('****could not get products***', error)
         })
       } else {
         console.log('user must be logged in')

@@ -31,7 +31,7 @@ const Main = ({ domainData }) =>
     <Route path='/sign-up' render={() => <SignUpContainer domainData={domainData} />} />
     <Route path='/login' render={() => <LoginContainer domainData={domainData} />} />
     <Route path='/cart' render={() => <CartContainer domainData={domainData} />} />
-    <Route path='/order' redner={() => <CheckoutPageContainer domainData={domainData} />} />
+    <Route path='/order' render={() => <CheckoutPageContainer domainData={domainData} />} />
   </main>
 
 Main.propTypes = {

@@ -9,7 +9,7 @@ const style = {
   body: '1px solid blue'
 }
 
-const CartCard = ({product, removeItemFromCart, showProductOrder}) => {
+const CartCard = ({product, removeItemFromCart, showProductOrder, object}) => {
   return (
     <div style={style.container}>
       <h4>{product.name}</h4>
@@ -17,13 +17,14 @@ const CartCard = ({product, removeItemFromCart, showProductOrder}) => {
       <p> {product.price} </p>
 
       <Button type='button' onClick={() => removeItemFromCart(product._id)} > Remove From Cart </Button>
-      <Button type='button' onClick={() => showProductOrder(product._id)} > Proceed to Checkout </Button>
+      <Button type='button' onClick={() => showProductOrder(object._id)} > Proceed to Checkout </Button>
     </div>
   )
 }
 
 CartCard.propTypes = {
   product: PropTypes.object.isRequired,
+  object: PropTypes.object.isRequired,
   removeItemFromCart: PropTypes.func.isRequired,
   showProductOrder: PropTypes.func.isRequired
 }
